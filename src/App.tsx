@@ -54,9 +54,30 @@ function App() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="text-4xl font-bold text-gradient"
+              transition={{ duration: 0.4 }}
+              className="flex flex-col items-center gap-4"
             >
-              NEXUS
+              <img 
+                src="/images/awizo-graphics-logo.webp" 
+                alt="Awizo Graphics" 
+                className="h-20 w-auto"
+              />
+              <motion.div 
+                className="w-32 h-1 rounded-full overflow-hidden bg-white/10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <motion.div 
+                  className="h-full rounded-full"
+                  style={{
+                    background: 'linear-gradient(90deg, rgba(251,146,60,0.9), rgba(217,119,6,0.9))',
+                  }}
+                  initial={{ width: '0%' }}
+                  animate={{ width: '100%' }}
+                  transition={{ duration: 0.8, ease: 'easeInOut' }}
+                />
+              </motion.div>
             </motion.div>
           </motion.div>
         )}

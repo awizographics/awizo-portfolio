@@ -76,7 +76,7 @@ export default function AboutPreview({ onPageChange }: AboutPreviewProps) {
                   transition={{ duration: 0.4 }}
                 >
                   <img
-                    src="/images/about-image.jpg"
+                    src="/images/awizo.jpg"
                     alt="About Me"
                     className="w-full h-auto object-cover"
                   />

@@ -18,7 +18,7 @@ const leftNavLinks: { label: string; page: Page }[] = [
 
 const rightNavLinks: { label: string; page: Page }[] = [
   { label: 'Projects', page: 'portfolio' },
-  { label: 'Reviews', page: 'contact' },
+  { label: 'Contact', page: 'contact' },
 ]
 
 export default function Navigation({ currentPage, onPageChange }: NavigationProps) {
@@ -163,7 +163,7 @@ export default function Navigation({ currentPage, onPageChange }: NavigationProp
             className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none"
           >
             <motion.nav
-              className="pointer-events-auto flex items-center justify-center gap-8 px-6 py-1.5 w-[70%] max-w-4xl bg-white/10 backdrop-blur-2xl rounded-full border border-white/20 shadow-2xl"
+              className="pointer-events-auto flex items-center justify-center gap-1 sm:gap-4 md:gap-8 px-2 sm:px-4 md:px-6 py-1.5 w-[92%] sm:w-[80%] md:w-[70%] max-w-4xl bg-white/10 backdrop-blur-2xl rounded-full border border-white/20 shadow-2xl"
               style={{
                 boxShadow: '0 8px 32px -8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)',
               }}
@@ -172,12 +172,12 @@ export default function Navigation({ currentPage, onPageChange }: NavigationProp
               transition={{ delay: 0.1, duration: 0.3 }}
             >
               {/* Left side links */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
                 {leftNavLinks.map((link) => (
                   <motion.button
                     key={link.page}
                     onClick={() => handleNavClick(link.page)}
-                    className={`relative px-4 py-1.5 text-sm font-medium transition-all rounded-full ${
+                    className={`relative px-2 sm:px-3 md:px-4 py-1.5 text-xs sm:text-sm font-medium transition-all rounded-full whitespace-nowrap ${
                       currentPage === link.page 
                         ? 'text-white bg-white/10' 
                         : 'text-white/60 hover:text-white hover:bg-white/5'
@@ -185,7 +185,8 @@ export default function Navigation({ currentPage, onPageChange }: NavigationProp
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    {link.label}
+                    <span className="hidden sm:inline">{link.label}</span>
+                    <span className="sm:hidden">{link.label.split(' ')[0]}</span>
                   </motion.button>
                 ))}
               </div>
@@ -197,7 +198,7 @@ export default function Navigation({ currentPage, onPageChange }: NavigationProp
                   e.preventDefault()
                   handleNavClick('home')
                 }}
-                className="flex items-center px-4 py-1 rounded-full bg-gradient-to-r from-white/10 to-white/5 border border-white/20"
+                className="flex items-center px-2 sm:px-3 md:px-4 py-1 rounded-full bg-gradient-to-r from-white/10 to-white/5 border border-white/20"
                 style={{
                   boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
                 }}
@@ -207,17 +208,17 @@ export default function Navigation({ currentPage, onPageChange }: NavigationProp
                 <img 
                   src="/images/awizo-graphics-logo-horizontal.webp" 
                   alt="Awizo Graphics" 
-                  className="h-9 w-auto"
+                  className="h-6 sm:h-7 md:h-9 w-auto"
                 />
               </motion.a>
 
               {/* Right side links */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
                 {rightNavLinks.map((link) => (
                   <motion.button
                     key={link.page}
                     onClick={() => handleNavClick(link.page)}
-                    className={`relative px-4 py-1.5 text-sm font-medium transition-all rounded-full ${
+                    className={`relative px-2 sm:px-3 md:px-4 py-1.5 text-xs sm:text-sm font-medium transition-all rounded-full whitespace-nowrap ${
                       currentPage === link.page 
                         ? 'text-white bg-white/10' 
                         : 'text-white/60 hover:text-white hover:bg-white/5'
@@ -225,7 +226,8 @@ export default function Navigation({ currentPage, onPageChange }: NavigationProp
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    {link.label}
+                    <span className="hidden sm:inline">{link.label}</span>
+                    <span className="sm:hidden">{link.label === 'Contact' ? 'Contact' : link.label}</span>
                   </motion.button>
                 ))}
               </div>

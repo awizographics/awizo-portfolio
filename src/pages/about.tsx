@@ -163,7 +163,7 @@ export default function AboutPage() {
                   }}
                 />
                 <img
-                  src="/images/hero-profile.jpg"
+                  src="/images/awizo-portfolio.webp"
                   alt="Creative Designer"
                   className="relative w-full h-auto object-cover rounded-3xl"
                 />
