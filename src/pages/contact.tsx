@@ -6,11 +6,10 @@ import {
   MapPin, 
   Send, 
   Instagram, 
-  Dribbble, 
-  Linkedin, 
-  Twitter,
+  Linkedin,
   MessageSquare,
-  CheckCircle
+  CheckCircle,
+  Facebook
 } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import { Input } from '../components/ui/input'
@@ -20,28 +19,27 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'hello@nexuscreative.com',
-    href: 'mailto:hello@nexuscreative.com',
+    value: 'awizographics@gmail.com',
+    href: 'mailto:awizographics@gmail.com',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+1 (234) 567-890',
-    href: 'tel:+1234567890',
+    value: '+92 313 7565517',
+    href: 'tel:+923137565517',
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'San Francisco, CA',
+    value: 'Available Worldwide',
     href: '#',
   },
 ]
 
 const socialLinks = [
-  { icon: Instagram, href: '#', label: 'Instagram', color: 'hover:text-pink-500' },
-  { icon: Dribbble, href: '#', label: 'Dribbble', color: 'hover:text-pink-400' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-500' },
-  { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:text-sky-400' },
+  { icon: Facebook, href: 'https://www.facebook.com/Awizographics/', label: 'Facebook', color: 'hover:text-blue-500' },
+  { icon: Instagram, href: 'https://www.instagram.com/awizographics/', label: 'Instagram', color: 'hover:text-pink-500' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/awizographics/', label: 'LinkedIn', color: 'hover:text-blue-500' },
 ]
 
 export default function ContactPage() {
@@ -178,7 +176,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold text-white mb-6">
-                Get in <span className="text-gradient">Touch</span>
+                Get in <span className="font-normal italic text-orange-200">Touch</span>
               </h2>
               <p className="text-white/60 mb-10 leading-relaxed">
                 Whether you have a question about services, pricing, need a quote, 
@@ -187,31 +185,41 @@ export default function ContactPage() {
 
               {/* Contact Details */}
               <div className="space-y-6 mb-10">
-                {contactInfo.map((item, index) => (
-                  <motion.a
-                    key={item.label}
-                    href={item.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-4 group"
-                  >
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
-                      style={{
-                        background: 'linear-gradient(135deg, rgba(251,146,60,0.9) 0%, rgba(217,119,6,0.9) 100%)',
-                      }}
+                {contactInfo.map((item, index) => {
+                  const iconColors = [
+                    { bg: 'rgba(251,146,60,0.1)', border: 'rgba(251,146,60,0.2)', icon: 'rgba(251,146,60,0.9)' },
+                    { bg: 'rgba(99,102,241,0.1)', border: 'rgba(99,102,241,0.2)', icon: '#818cf8' },
+                    { bg: 'rgba(168,85,247,0.1)', border: 'rgba(168,85,247,0.2)', icon: '#a78bfa' },
+                  ]
+                  const colors = iconColors[index]
+                  return (
+                    <motion.a
+                      key={item.label}
+                      href={item.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex items-center gap-4 group"
                     >
-                      <item.icon className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-white/40 text-sm">{item.label}</p>
-                      <p className="text-white group-hover:text-orange-400 transition-colors">
-                        {item.value}
-                      </p>
-                    </div>
-                  </motion.a>
-                ))}
+                      <div 
+                        className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0"
+                        style={{
+                          background: colors.bg,
+                          border: `1px solid ${colors.border}`,
+                        }}
+                      >
+                        <item.icon className="w-5 h-5" style={{ color: colors.icon }} />
+                      </div>
+                      <div>
+                        <p className="text-white/40 text-sm">{item.label}</p>
+                        <p className="text-white group-hover:text-orange-400 transition-colors">
+                          {item.value}
+                        </p>
+                      </div>
+                    </motion.a>
+                  )
+                })}
               </div>
 
               {/* Social Links */}
@@ -248,7 +256,7 @@ export default function ContactPage() {
                     <p className="text-white/60 text-sm">Chat with me directly</p>
                   </div>
                   <a
-                    href="https://wa.me/1234567890"
+                    href="https://wa.me/923137565517"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 rounded-full bg-green-500/20 text-green-400 text-sm font-medium hover:bg-green-500/30 transition-colors"

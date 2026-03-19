@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Instagram, Dribbble, Linkedin, Twitter, Mail, MapPin, Phone, ArrowRight, Send, Heart } from 'lucide-react'
+import { Instagram, Linkedin, Mail, MapPin, Phone, ArrowRight, Send, Heart, Facebook } from 'lucide-react'
 
 interface FooterProps {
   onPageChange: (page: 'home' | 'about' | 'services' | 'portfolio' | 'contact') => void
@@ -24,10 +24,9 @@ const services = [
 ]
 
 const socialLinks = [
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Dribbble, href: '#', label: 'Dribbble' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
+  { icon: Facebook, href: 'https://www.facebook.com/Awizographics/', label: 'Facebook' },
+  { icon: Instagram, href: 'https://www.instagram.com/awizographics/', label: 'Instagram' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/awizographics/', label: 'LinkedIn' },
 ]
 
 export default function Footer({ onPageChange }: FooterProps) {
@@ -264,7 +263,7 @@ export default function Footer({ onPageChange }: FooterProps) {
               <ul className="space-y-5">
                 <li>
                   <a 
-                    href="mailto:hello@awizographics.com" 
+                    href="mailto:awizographics@gmail.com" 
                     className="group flex items-start gap-3 text-white/50 hover:text-white transition-colors duration-300"
                   >
                     <div 
@@ -278,13 +277,13 @@ export default function Footer({ onPageChange }: FooterProps) {
                     </div>
                     <div>
                       <p className="text-xs text-white/40 mb-1">Email</p>
-                      <p className="text-sm group-hover:text-orange-300 transition-colors">hello@awizographics.com</p>
+                      <p className="text-sm group-hover:text-orange-300 transition-colors">awizographics@gmail.com</p>
                     </div>
                   </a>
                 </li>
                 <li>
                   <a 
-                    href="tel:+1234567890" 
+                    href="tel:+923137565517" 
                     className="group flex items-start gap-3 text-white/50 hover:text-white transition-colors duration-300"
                   >
                     <div 
@@ -298,7 +297,7 @@ export default function Footer({ onPageChange }: FooterProps) {
                     </div>
                     <div>
                       <p className="text-xs text-white/40 mb-1">Phone</p>
-                      <p className="text-sm group-hover:text-indigo-300 transition-colors">+1 (234) 567-890</p>
+                      <p className="text-sm group-hover:text-indigo-300 transition-colors">+92 313 7565517</p>
                     </div>
                   </a>
                 </li>
@@ -327,29 +326,14 @@ export default function Footer({ onPageChange }: FooterProps) {
         {/* Bottom Bar */}
         <div className="border-t border-white/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-white/40 text-sm flex items-center gap-1"
-              >
-                © {new Date().getFullYear()} Awizo Graphics. Made with <Heart className="w-4 h-4 text-red-400 inline mx-1" /> for creative minds.
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex gap-6"
-              >
-                <button className="text-white/40 hover:text-white text-sm transition-colors duration-300">
-                  Privacy Policy
-                </button>
-                <button className="text-white/40 hover:text-white text-sm transition-colors duration-300">
-                  Terms of Service
-                </button>
-              </motion.div>
-            </div>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-white/40 text-sm text-center flex items-center justify-center gap-1"
+            >
+              © {new Date().getFullYear()} Awizo Graphics. Made with <Heart className="w-4 h-4 text-red-400 inline mx-1" /> by <a href="https://razadevx.vercel.app" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 transition-colors">razadevx</a>
+            </motion.p>
           </div>
         </div>
       </div>

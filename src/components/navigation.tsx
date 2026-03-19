@@ -12,7 +12,7 @@ interface NavigationProps {
 }
 
 const leftNavLinks: { label: string; page: Page }[] = [
-  { label: 'About Us', page: 'about' },
+  { label: 'About Me', page: 'about' },
   { label: 'Services', page: 'services' },
 ]
 
