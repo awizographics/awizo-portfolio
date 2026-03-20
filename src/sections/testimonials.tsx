@@ -3,30 +3,31 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 
 const testimonials = [
-  {
-    id: 1,
-    name: 'Sarah Johnson',
-    role: 'CEO, TechStart',
-    image: '/images/testimonials/avatar-1.jpg',
-    content: 'Working with Nexus Creative was an absolute game-changer for our brand. Their attention to detail and creative vision transformed our identity completely. The results exceeded our expectations.',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Michael Chen',
-    role: 'Marketing Director, BrandCo',
-    image: '/images/testimonials/avatar-2.jpg',
-    content: 'Exceptional creativity and professionalism. The team delivered a comprehensive branding package that perfectly captured our company values. Highly recommend their services.',
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'Emily Rodriguez',
-    role: 'Founder, Creative Studio',
-    image: '/images/testimonials/avatar-3.jpg',
-    content: 'The 3D product renders and motion graphics they created for our launch campaign were stunning. Our engagement rates increased by 300%. Truly outstanding work!',
-    rating: 5,
-  },
+  { id: 1, name: 'Ahmed Khan', role: 'Startup Founder', gender: 'male', content: 'Awizo completely transformed our brand identity. The logo and social media kit were exactly what we needed. Super responsive and professional!', rating: 5 },
+  { id: 2, name: 'Fatima Ali', role: 'Marketing Manager', gender: 'female', content: 'Best designer I\'ve worked with on Fiverr. Delivered my Instagram carousel posts in 24 hours and they looked stunning!', rating: 5 },
+  { id: 3, name: 'Omar Hassan', role: 'E-commerce Owner', gender: 'male', content: 'My product sales doubled after Awizo redesigned my Amazon listings. The 3D mockups were a game changer.', rating: 5 },
+  { id: 4, name: 'Sarah Malik', role: 'Content Creator', gender: 'female', content: 'Finally found a designer who actually understands TikTok aesthetics. My thumbnail CTR went up 40%!', rating: 5 },
+  { id: 5, name: 'Bilal Ahmed', role: 'Tech CEO', gender: 'male', content: 'Created our entire pitch deck and it helped us secure funding. Clean, modern, and investor-friendly design.', rating: 5 },
+  { id: 6, name: 'Ayesha Tariq', role: 'Restaurant Owner', gender: 'female', content: 'The menu design and food photography editing was perfect. Customers keep complimenting how professional it looks!', rating: 5 },
+  { id: 7, name: 'Zainab Qureshi', role: 'Fashion Blogger', gender: 'female', content: 'Been working with Awizo for 6 months now. Always delivers on time and the quality never drops. My go-to designer!', rating: 5 },
+  { id: 8, name: 'Hamza Raza', role: 'Real Estate Agent', gender: 'male', content: 'Property brochures and social media templates look premium now. Helped me close 3 deals last month alone.', rating: 5 },
+  { id: 9, name: 'Noor Fatima', role: 'Wedding Planner', gender: 'female', content: 'The wedding invitation designs were breathtaking. Every client asks who designed them!', rating: 5 },
+  { id: 10, name: 'Usman Ghani', role: 'App Developer', gender: 'male', content: 'UI/UX work was exceptional. User testing showed 35% better navigation after the redesign.', rating: 5 },
+  { id: 11, name: 'Mariam Zahra', role: 'YouTuber', gender: 'female', content: 'My channel branding is now consistent across all platforms. The animated intro alone got me 10k new subs!', rating: 5 },
+  { id: 12, name: 'Ali Raza', role: 'Coffee Shop Owner', gender: 'male', content: 'Packaging design made our coffee bags stand out on shelves. Wholesale orders increased by 60%.', rating: 5 },
+  { id: 13, name: 'Hira Shah', role: 'Gym Trainer', gender: 'female', content: 'Fitness program flyers and Instagram posts are fire! My classes are fully booked now.', rating: 5 },
+  { id: 14, name: 'Fahad Mirza', role: 'Car Dealer', gender: 'male', content: 'Vehicle listing photos and edit service is worth every penny. Cars sell 2x faster now.', rating: 5 },
+  { id: 15, name: 'Sana Javed', role: 'Event Manager', gender: 'female', content: 'Corporate event branding was handled perfectly. From banners to digital invites - everything synced beautifully.', rating: 5 },
+  { id: 16, name: 'Rizwan Haider', role: 'Consultant', gender: 'male', content: 'LinkedIn banner and profile optimization helped me land 3 new clients. Professional yet approachable design.', rating: 5 },
+  { id: 17, name: 'Laiba Khan', role: 'Beauty Salon Owner', gender: 'female', content: 'Price list design and salon logo are gorgeous. Customers say we look like a high-end brand now!', rating: 5 },
+  { id: 18, name: 'Taimoor Ali', role: 'Podcast Host', gender: 'male', content: 'Cover art and episode thumbnails are exactly what my podcast needed. Apple featured us!', rating: 5 },
+  { id: 19, name: 'Mehwish Akram', role: 'Online Tutor', gender: 'female', content: 'Course thumbnail templates saved me so much time. Student enrollment increased after the rebrand.', rating: 5 },
+  { id: 20, name: 'Saad Ibrahim', role: 'Dropshipper', gender: 'male', content: 'Product mockups for my Shopify store look better than the actual products! Conversion rate up 25%.', rating: 5 },
+  { id: 21, name: 'Rabia Anwar', role: 'Handmade Jewelry', gender: 'female', content: 'Product photography guidance and edit service made my Etsy shop look professional. Sales tripled!', rating: 5 },
+  { id: 22, name: 'Arslan Tariq', role: 'Tech Reviewer', gender: 'male', content: 'The gadget review graphics are clean and informative. Followers keep asking for more!', rating: 5 },
+  { id: 23, name: 'Nida Farooq', role: 'Interior Designer', gender: 'female', content: 'Portfolio layout and presentation boards are stunning. Won a major project thanks to Awizo\'s work.', rating: 5 },
+  { id: 24, name: 'Waleed Khan', role: 'Travel Blogger', gender: 'male', content: 'Map illustrations and travel story layouts are unique and engaging. Brands are reaching out now!', rating: 5 },
+  { id: 25, name: 'Amina Hassan', role: 'Bakery Owner', gender: 'female', content: 'Cake catalog and social media content is irresistible. Bookings are full 2 months in advance!', rating: 5 },
 ]
 
 export default function Testimonials() {
@@ -194,7 +195,7 @@ export default function Testimonials() {
                           }}
                         >
                           <img
-                            src={testimonial.image}
+                            src={`https://api.dicebear.com/7.x/lorelei/svg?seed=${testimonial.name}&gender=${testimonial.gender}`}
                             alt={testimonial.name}
                             className="w-full h-full object-cover"
                           />

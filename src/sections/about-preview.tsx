@@ -9,7 +9,7 @@ interface AboutPreviewProps {
 
 const stats = [
   { icon: Briefcase, value: '150+', label: 'Projects Delivered' },
-  { icon: Award, value: '8+', label: 'Years Experience' },
+  { icon: Award, value: '5+', label: 'Years Experience' },
   { icon: Users, value: '50+', label: 'Happy Clients' },
 ]
 

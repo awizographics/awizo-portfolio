@@ -12,7 +12,7 @@ const stats = [
   },
   { 
     icon: Calendar, 
-    value: 8, 
+    value: 5, 
     suffix: '+', 
     label: 'Years Experience',
     description: 'Years in the industry'
@@ -26,7 +26,7 @@ const stats = [
   },
   { 
     icon: Zap, 
-    value: 25, 
+    value: 15, 
     suffix: '+', 
     label: 'Skills Mastered',
     description: 'Design & development skills'
@@ -168,13 +168,21 @@ export default function StatsSection() {
               className="relative group"
             >
               <motion.div
-                className="relative rounded-2xl p-8 text-center overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10"
+                className="relative rounded-xl p-8 text-center overflow-hidden bg-gradient-to-b from-white/[0.03] via-white/[0.01] to-white/[0.08] backdrop-blur-sm border border-white/10"
+                style={{
+                  boxShadow: `
+                    inset 0 -60px 100px -30px rgba(251,146,60,0.5),
+                    inset 0 -4px 30px -10px rgba(251,146,60,0.6),
+                    inset 0 1px 0 rgba(255,255,255,0.05),
+                    0 4px 30px rgba(0,0,0,0.3)
+                  `,
+                }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Orbiting Dot */}
+                {/* Orbiting Dot - repositioned to corner */}
                 <motion.div
-                  className="absolute top-4 right-4 w-2 h-2 rounded-full"
+                  className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full"
                   animate={{ 
                     rotate: 360,
                   }}
@@ -185,26 +193,15 @@ export default function StatsSection() {
                     delay: index * 0.5
                   }}
                   style={{ 
-                    background: 'linear-gradient(135deg, rgba(251,146,60,0.9) 0%, rgba(217,119,6,0.9) 100%)',
-                    transformOrigin: '-20px 20px',
+                    background: 'rgba(251,146,60,0.9)',
+                    boxShadow: '0 0 10px rgba(251,146,60,0.8), 0 0 20px rgba(251,146,60,0.4)',
+                    transformOrigin: '-24px 24px',
                   }}
                 />
 
-                {/* Icon */}
-                <motion.div
-                  className="w-14 h-14 mx-auto rounded-xl flex items-center justify-center mb-5"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(251,146,60,0.9) 0%, rgba(217,119,6,0.9) 100%)',
-                  }}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <stat.icon className="w-7 h-7 text-white" />
-                </motion.div>
-
                 {/* Value */}
-                <div className="text-4xl sm:text-5xl font-bold text-white mb-2">
-                  <span className="text-orange-400">
+                <div className="text-4xl sm:text-5xl font-bold mb-2 mt-2">
+                  <span style={{ color: 'rgba(251,146,60,0.95)' }}>
                     <AnimatedCounter 
                       value={stat.value} 
                       suffix={stat.suffix}
@@ -214,17 +211,19 @@ export default function StatsSection() {
                 </div>
 
                 {/* Label */}
-                <h3 className="text-lg font-semibold text-white mb-1">
+                <h3 className="text-lg font-semibold text-white mb-1 drop-shadow-sm">
                   {stat.label}
                 </h3>
-                <p className="text-sm text-white/60">
+                <p className="text-sm text-white/50">
                   {stat.description}
                 </p>
 
-                {/* Hover Glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                {/* Bottom intense glow accent */}
+                <div 
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-[3px] rounded-full"
                   style={{
-                    background: 'radial-gradient(circle at 50% 50%, rgba(251,146,60,0.1) 0%, transparent 70%)',
+                    background: 'linear-gradient(90deg, transparent, rgba(251,146,60,0.8), transparent)',
+                    boxShadow: '0 0 40px 4px rgba(251,146,60,0.5), 0 0 80px 8px rgba(251,146,60,0.3)',
                   }}
                 />
               </motion.div>

@@ -6,50 +6,191 @@ interface PortfolioPreviewProps {
   onPageChange: (page: 'portfolio') => void
 }
 
-const categories = ['All', 'Logos', 'Branding', 'Social', '3D', 'Video']
+const categories = ['All', 'Branding', 'Logo Design', 'NFC Cards', '3D Design', 'Packaging', 'Social Media']
 
 const projects = [
+  // Branding
   {
     id: 1,
-    title: 'Brand Identity Design',
-    category: 'Logos',
-    image: '/images/portfolio/project-1.jpg',
-    description: 'Modern minimalist logo design',
+    title: 'Complete Brand Identity',
+    category: 'Branding',
+    image: '/images/portfolio/branding.jpeg',
+    description: 'Full corporate identity system',
   },
   {
     id: 2,
-    title: 'Corporate Branding',
+    title: 'Business Branding',
     category: 'Branding',
-    image: '/images/portfolio/project-2.jpg',
-    description: 'Complete brand identity system',
+    image: '/images/portfolio/nfc business.jpeg',
+    description: 'Professional brand collateral',
   },
   {
     id: 3,
-    title: 'Social Media Campaign',
-    category: 'Social',
-    image: '/images/portfolio/project-3.jpg',
-    description: 'Engaging social media content',
+    title: 'Brand Stationery',
+    category: 'Branding',
+    image: '/images/portfolio/nfc-business.jpeg',
+    description: 'Cohesive brand materials',
   },
   {
     id: 4,
-    title: '3D Product Render',
-    category: '3D',
-    image: '/images/portfolio/project-4.jpg',
-    description: 'Photorealistic 3D visualization',
+    title: 'Corporate Identity',
+    category: 'Branding',
+    image: '/images/portfolio/project-2.webp',
+    description: 'Modern business branding',
   },
+  // Logo Design
   {
     id: 5,
-    title: 'Motion Graphics',
-    category: 'Video',
-    image: '/images/portfolio/project-5.jpg',
-    description: 'Dynamic video content',
+    title: 'Premium Logo Mockup',
+    category: 'Logo Design',
+    image: '/images/portfolio/logo-mockup.jpg',
+    description: 'Elegant logo presentation',
   },
   {
     id: 6,
+    title: 'Creative Logo Design',
+    category: 'Logo Design',
+    image: '/images/portfolio/logo.jpeg',
+    description: 'Unique brand mark design',
+  },
+  {
+    id: 7,
+    title: 'Logo Template',
+    category: 'Logo Design',
+    image: '/images/portfolio/logo-orange-template.jpeg',
+    description: 'Versatile logo system',
+  },
+  // NFC Cards
+  {
+    id: 8,
+    title: 'NFC Business Card',
+    category: 'NFC Cards',
+    image: '/images/portfolio/nfc-business-cards.jpeg',
+    description: 'Smart contact card design',
+  },
+  {
+    id: 9,
+    title: 'Digital NFC Card',
+    category: 'NFC Cards',
+    image: '/images/portfolio/nfc-green.jpeg',
+    description: 'Eco-friendly smart card',
+  },
+  {
+    id: 10,
+    title: 'Premium NFC Cards',
+    category: 'NFC Cards',
+    image: '/images/portfolio/nfc-cards.jpeg',
+    description: 'Luxury card collection',
+  },
+  {
+    id: 11,
+    title: 'Black NFC Card',
+    category: 'NFC Cards',
+    image: '/images/portfolio/nfc-card-blk.jpeg',
+    description: 'Sleek premium design',
+  },
+  // 3D Design
+  {
+    id: 12,
+    title: '3D Perfume Render',
+    category: '3D Design',
+    image: '/images/portfolio/3d-product-perfume.jpeg',
+    description: 'Photorealistic product viz',
+  },
+  {
+    id: 13,
+    title: '3D Object Design',
+    category: '3D Design',
+    image: '/images/portfolio/3d-obj.jpeg',
+    description: 'Modern 3D visualization',
+  },
+  {
+    id: 14,
+    title: '3D Product Render',
+    category: '3D Design',
+    image: '/images/portfolio/3d-product-blender.jpeg',
+    description: 'Blender 3D artwork',
+  },
+  {
+    id: 15,
+    title: 'Product 3D Model',
+    category: '3D Design',
+    image: '/images/portfolio/3d-product-b.jpeg',
+    description: 'Detailed 3D modeling',
+  },
+  // Packaging
+  {
+    id: 16,
     title: 'Product Packaging',
+    category: 'Packaging',
+    image: '/images/portfolio/product-packaging.jpeg',
+    description: 'Retail-ready packaging',
+  },
+  {
+    id: 17,
+    title: 'Premium Packaging',
+    category: 'Packaging',
+    image: '/images/portfolio/packaging.jpg',
+    description: 'Luxury box design',
+  },
+  {
+    id: 18,
+    title: 'Brand Packaging',
+    category: 'Packaging',
+    image: '/images/portfolio/project-3.jpg',
+    description: 'Custom package design',
+  },
+  // Social Media
+  {
+    id: 19,
+    title: 'Social Media Post',
+    category: 'Social Media',
+    image: '/images/portfolio/branding-post.jpeg',
+    description: 'Engaging brand content',
+  },
+  {
+    id: 20,
+    title: 'Instagram Post',
+    category: 'Social Media',
+    image: '/images/portfolio/post1.jpeg',
+    description: 'Viral social content',
+  },
+  {
+    id: 21,
+    title: 'Marketing Post',
+    category: 'Social Media',
+    image: '/images/portfolio/post3.jpeg',
+    description: 'Promotional graphic',
+  },
+  {
+    id: 22,
+    title: 'Social Campaign',
+    category: 'Social Media',
+    image: '/images/portfolio/post-1.jpg',
+    description: 'Strategic social design',
+  },
+  {
+    id: 23,
+    title: 'Brand Post Design',
+    category: 'Social Media',
+    image: '/images/portfolio/post-4.jpg',
+    description: 'Attention-grabbing visual',
+  },
+  // Apparel
+  {
+    id: 24,
+    title: 'Custom T-Shirt Design',
     category: 'Branding',
-    image: '/images/portfolio/project-6.jpg',
-    description: 'Premium packaging design',
+    image: '/images/portfolio/printed-shirts.jpeg',
+    description: 'Wearable brand merch',
+  },
+  // Original Projects (keeping project-1)
+  {
+    id: 25,
+    title: 'Brand Identity Design',
+    category: 'Branding',
+    image: '/images/portfolio/project-1.jpg',
+    description: 'Modern minimalist logo',
   },
 ]
 
@@ -160,99 +301,105 @@ export default function PortfolioPreview({ onPageChange }: PortfolioPreviewProps
           </motion.div>
         </div>
 
-        {/* Projects Grid */}
-        <motion.div 
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          layout
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: index * 0.1,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-                className={`group relative ${
-                  index === 0 ? 'sm:col-span-2 lg:col-span-2' : ''
-                }`}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-              >
+        {/* Projects Masonry Grid with Fade */}
+        <div className="relative">
+          <motion.div 
+            className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 max-h-[1500px] overflow-hidden"
+            layout
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project, index) => (
                 <motion.div
-                  className="relative overflow-hidden rounded-2xl cursor-pointer"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                  onClick={() => onPageChange('portfolio')}
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: index * 0.08,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
+                  className="group relative break-inside-avoid mb-6"
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
                 >
-                  {/* Image */}
-                  <div className={`relative overflow-hidden ${
-                    index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'
-                  }`}>
-                    <motion.img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                      animate={{ 
-                        scale: hoveredProject === project.id ? 1.1 : 1 
-                      }}
-                      transition={{ duration: 0.6 }}
-                    />
-                    
-                    {/* Overlay */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"
-                      initial={{ opacity: 0 }}
-                      animate={{ 
-                        opacity: hoveredProject === project.id ? 1 : 0 
-                      }}
-                      transition={{ duration: 0.3 }}
-                    />
+                  <motion.div
+                    className="relative overflow-hidden rounded-2xl cursor-pointer"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.4 }}
+                    onClick={() => onPageChange('portfolio')}
+                  >
+                    {/* Image - Natural Height */}
+                    <div className="relative overflow-hidden">
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-auto object-cover"
+                        animate={{ 
+                          scale: hoveredProject === project.id ? 1.05 : 1 
+                        }}
+                        transition={{ duration: 0.6 }}
+                      />
+                      
+                      {/* Overlay */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"
+                        initial={{ opacity: 0 }}
+                        animate={{ 
+                          opacity: hoveredProject === project.id ? 1 : 0 
+                        }}
+                        transition={{ duration: 0.3 }}
+                      />
 
-                    {/* Content Overlay */}
-                    <motion.div
-                      className="absolute inset-0 flex flex-col justify-end p-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ 
-                        opacity: hoveredProject === project.id ? 1 : 0,
-                        y: hoveredProject === project.id ? 0 : 20
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="text-xs font-medium text-orange-400 uppercase tracking-wider mb-2">
-                        {project.category}
-                      </span>
-                      <h3 className="text-xl font-bold text-white mb-1">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-white/70">
-                        {project.description}
-                      </p>
-                    </motion.div>
+                      {/* Content Overlay */}
+                      <motion.div
+                        className="absolute inset-0 flex flex-col justify-end p-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ 
+                          opacity: hoveredProject === project.id ? 1 : 0,
+                          y: hoveredProject === project.id ? 0 : 20
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <span className="text-xs font-medium text-orange-400 uppercase tracking-wider mb-2">
+                          {project.category}
+                        </span>
+                        <h3 className="text-xl font-bold text-white mb-1">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-white/70">
+                          {project.description}
+                        </p>
+                      </motion.div>
 
-                    {/* View Icon */}
-                    <motion.div
-                      className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ 
-                        opacity: hoveredProject === project.id ? 1 : 0,
-                        scale: hoveredProject === project.id ? 1 : 0.8
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <ArrowUpRight className="w-5 h-5 text-white" />
-                    </motion.div>
-                  </div>
+                      {/* View Icon */}
+                      <motion.div
+                        className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ 
+                          opacity: hoveredProject === project.id ? 1 : 0,
+                          scale: hoveredProject === project.id ? 1 : 0.8
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ArrowUpRight className="w-5 h-5 text-white" />
+                      </motion.div>
+                    </div>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Bottom Fade Gradient */}
+          <div 
+            className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+            style={{
+              background: 'linear-gradient(to bottom, transparent, #0a0a0f)',
+            }}
+          />
+        </div>
 
         {/* View All Button */}
         <motion.div

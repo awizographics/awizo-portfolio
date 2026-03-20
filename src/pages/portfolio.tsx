@@ -3,63 +3,40 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Dialog, DialogContent } from '../components/ui/dialog'
 
-const categories = ['All', 'Logos', 'Branding', 'Social', '3D', 'Video']
+const categories = ['All', 'Branding', 'Logo Design', 'NFC Cards', '3D Design', 'Packaging', 'Social Media']
 
 const projects = [
-  {
-    id: 1,
-    title: 'Brand Identity Design',
-    category: 'Logos',
-    image: '/images/portfolio/project-1.jpg',
-    description: 'Modern minimalist logo design for a tech startup. The project involved creating a memorable wordmark that communicates innovation and reliability.',
-    client: 'TechStart Inc',
-    year: '2024',
-  },
-  {
-    id: 2,
-    title: 'Corporate Branding',
-    category: 'Branding',
-    image: '/images/portfolio/project-2.jpg',
-    description: 'Complete brand identity system including business cards, letterhead, and envelope design for a professional services company.',
-    client: 'Celsius Blue Designs',
-    year: '2024',
-  },
-  {
-    id: 3,
-    title: 'Social Media Campaign',
-    category: 'Social',
-    image: '/images/portfolio/project-3.jpg',
-    description: 'Engaging social media content design with bold typography and eye-catching gradients for a digital marketing agency.',
-    client: 'Digital Market Pro',
-    year: '2023',
-  },
-  {
-    id: 4,
-    title: '3D Product Render',
-    category: '3D',
-    image: '/images/portfolio/project-4.jpg',
-    description: 'Photorealistic 3D product visualization with professional studio lighting and materials for an electronics brand.',
-    client: 'AudioTech',
-    year: '2023',
-  },
-  {
-    id: 5,
-    title: 'Motion Graphics',
-    category: 'Video',
-    image: '/images/portfolio/project-5.jpg',
-    description: 'Dynamic motion graphics with kinetic typography for a tech conference promotional video.',
-    client: 'Future Flow Design',
-    year: '2024',
-  },
-  {
-    id: 6,
-    title: 'Product Packaging',
-    category: 'Branding',
-    image: '/images/portfolio/project-6.jpg',
-    description: 'Premium packaging design with elegant gold accents for a luxury skincare brand.',
-    client: 'Aurora Botanicals',
-    year: '2023',
-  },
+  // Branding
+  { id: 1, title: 'Complete Brand Identity', category: 'Branding', image: '/images/portfolio/branding.jpeg', description: 'Full corporate identity system for a modern business', client: 'Premium Brands Co', year: '2024' },
+  { id: 2, title: 'Business Branding', category: 'Branding', image: '/images/portfolio/nfc business.jpeg', description: 'Professional brand collateral and stationery design', client: 'NFC Solutions', year: '2024' },
+  { id: 3, title: 'Brand Stationery', category: 'Branding', image: '/images/portfolio/nfc-business.jpeg', description: 'Cohesive brand materials including cards and letterhead', client: 'Business Pro', year: '2023' },
+  { id: 4, title: 'Corporate Identity', category: 'Branding', image: '/images/portfolio/project-2.webp', description: 'Modern business branding with complete guidelines', client: 'TechCorp Inc', year: '2024' },
+  { id: 5, title: 'Custom T-Shirt Design', category: 'Branding', image: '/images/portfolio/printed-shirts.jpeg', description: 'Wearable brand merchandise and apparel design', client: 'Street Wear Co', year: '2024' },
+  { id: 6, title: 'Brand Identity Design', category: 'Branding', image: '/images/portfolio/project-1.jpg', description: 'Modern minimalist logo and brand system', client: 'Startup Hub', year: '2023' },
+  // Logo Design
+  { id: 7, title: 'Premium Logo Mockup', category: 'Logo Design', image: '/images/portfolio/logo-mockup.jpg', description: 'Elegant logo presentation with 3D mockups', client: 'Luxury Brands', year: '2024' },
+  { id: 8, title: 'Creative Logo Design', category: 'Logo Design', image: '/images/portfolio/logo.jpeg', description: 'Unique brand mark design with memorable identity', client: 'Creative Studio', year: '2024' },
+  { id: 9, title: 'Logo Template', category: 'Logo Design', image: '/images/portfolio/logo-orange-template.jpeg', description: 'Versatile logo system with variations', client: 'Design Agency', year: '2023' },
+  // NFC Cards
+  { id: 10, title: 'NFC Business Card', category: 'NFC Cards', image: '/images/portfolio/nfc-business-cards.jpeg', description: 'Smart contact card design with digital integration', client: 'Tech Innovations', year: '2024' },
+  { id: 11, title: 'Digital NFC Card', category: 'NFC Cards', image: '/images/portfolio/nfc-green.jpeg', description: 'Eco-friendly smart card with premium finish', client: 'Green Tech Co', year: '2024' },
+  { id: 12, title: 'Premium NFC Cards', category: 'NFC Cards', image: '/images/portfolio/nfc-cards.jpeg', description: 'Luxury card collection with metallic accents', client: 'Executive Cards', year: '2023' },
+  { id: 13, title: 'Black NFC Card', category: 'NFC Cards', image: '/images/portfolio/nfc-card-blk.jpeg', description: 'Sleek premium design with matte finish', client: 'Black Label Co', year: '2024' },
+  // 3D Design
+  { id: 14, title: '3D Perfume Render', category: '3D Design', image: '/images/portfolio/3d-product-perfume.jpeg', description: 'Photorealistic product visualization', client: 'Fragrance House', year: '2024' },
+  { id: 15, title: '3D Object Design', category: '3D Design', image: '/images/portfolio/3d-obj.jpeg', description: 'Modern 3D visualization with studio lighting', client: 'Object Studios', year: '2024' },
+  { id: 16, title: '3D Product Render', category: '3D Design', image: '/images/portfolio/3d-product-blender.jpeg', description: 'Blender 3D artwork with realistic materials', client: 'Product Labs', year: '2023' },
+  { id: 17, title: 'Product 3D Model', category: '3D Design', image: '/images/portfolio/3d-product-b.jpeg', description: 'Detailed 3D modeling for e-commerce', client: 'Online Retailer', year: '2024' },
+  // Packaging
+  { id: 18, title: 'Product Packaging', category: 'Packaging', image: '/images/portfolio/product-packaging.jpeg', description: 'Retail-ready packaging with eye-catching design', client: 'Consumer Goods Co', year: '2024' },
+  { id: 19, title: 'Premium Packaging', category: 'Packaging', image: '/images/portfolio/packaging.jpg', description: 'Luxury box design with elegant finishes', client: 'Luxury Brands', year: '2024' },
+  { id: 20, title: 'Brand Packaging', category: 'Packaging', image: '/images/portfolio/project-3.jpg', description: 'Custom package design for product launch', client: 'New Product Co', year: '2023' },
+  // Social Media
+  { id: 21, title: 'Social Media Post', category: 'Social Media', image: '/images/portfolio/branding-post.jpeg', description: 'Engaging brand content for Instagram', client: 'Digital Agency', year: '2024' },
+  { id: 22, title: 'Instagram Post', category: 'Social Media', image: '/images/portfolio/post1.jpeg', description: 'Viral social content with bold graphics', client: 'Influencer Hub', year: '2024' },
+  { id: 23, title: 'Marketing Post', category: 'Social Media', image: '/images/portfolio/post3.jpeg', description: 'Promotional graphic for campaign', client: 'Marketing Pro', year: '2023' },
+  { id: 24, title: 'Social Campaign', category: 'Social Media', image: '/images/portfolio/post-1.jpg', description: 'Strategic social design series', client: 'Brand Agency', year: '2024' },
+  { id: 25, title: 'Brand Post Design', category: 'Social Media', image: '/images/portfolio/post-4.jpg', description: 'Attention-grabbing visual content', client: 'Social Media Co', year: '2024' },
 ]
 
 export default function PortfolioPage() {
@@ -196,9 +173,9 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
 
-          {/* Projects Grid */}
+          {/* Projects Masonry Grid */}
           <motion.div 
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
             layout
           >
             <AnimatePresence mode="popLayout">
@@ -206,15 +183,15 @@ export default function PortfolioPage() {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
                   transition={{ 
                     duration: 0.5, 
-                    delay: index * 0.05,
+                    delay: index * 0.08,
                     ease: [0.16, 1, 0.3, 1]
                   }}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer break-inside-avoid mb-6"
                   onClick={() => setSelectedProject(project)}
                 >
                   <motion.div
@@ -222,12 +199,12 @@ export default function PortfolioPage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.4 }}
                   >
-                    <div className="aspect-[4/3] relative overflow-hidden">
+                    <div className="relative overflow-hidden">
                       <motion.img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.1 }}
+                        className="w-full h-auto object-cover"
+                        whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.6 }}
                       />
                       

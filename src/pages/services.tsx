@@ -27,7 +27,6 @@ const services = [
       'Brand Guidelines',
       'Collateral Design',
     ],
-    price: 'From $1,500',
     popular: true,
   },
   {
@@ -41,7 +40,6 @@ const services = [
       'Social Media Templates',
       'Content Calendar Design',
     ],
-    price: 'From $800/month',
     popular: false,
   },
   {
@@ -55,7 +53,6 @@ const services = [
       'Visual Design',
       'Usability Testing',
     ],
-    price: 'From $3,000',
     popular: true,
   },
   {
@@ -69,7 +66,6 @@ const services = [
       'Reels & Shorts',
       'Ad Campaigns',
     ],
-    price: 'From $1,200',
     popular: false,
   },
   {
@@ -83,7 +79,6 @@ const services = [
       'Character Design',
       'Animation',
     ],
-    price: 'From $2,500',
     popular: false,
   },
   {
@@ -97,7 +92,6 @@ const services = [
       'Lifestyle Shots',
       '360° Views',
     ],
-    price: 'From $600',
     popular: false,
   },
   {
@@ -111,7 +105,6 @@ const services = [
       'Digital Profile',
       'Analytics Dashboard',
     ],
-    price: 'From $400',
     popular: true,
   },
   {
@@ -125,7 +118,6 @@ const services = [
       'Magazine Layout',
       'Packaging Design',
     ],
-    price: 'From $500',
     popular: false,
   },
 ]
@@ -298,12 +290,8 @@ export default function ServicesPage() {
                         ))}
                       </ul>
 
-                      {/* Price & CTA */}
-                      <div className="flex items-center justify-between pt-6 border-t border-white/10">
-                        <div>
-                          <span className="text-white/60 text-sm">Starting from</span>
-                          <span className="text-xl font-bold text-orange-400">{service.price}</span>
-                        </div>
+                      {/* CTA */}
+                      <div className="pt-6 border-t border-white/10">
                         <Button
                           variant="outline"
                           className="border-white/20 text-white hover:bg-white/10 rounded-full group/btn"
