@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUp, X, Send } from 'lucide-react'
+import { pageview } from './lib/gtag'
 import Navigation from './components/navigation'
 import Footer from './sections/footer'
 import HomePage from './pages/home'
@@ -31,6 +32,12 @@ function App() {
   // Scroll to top when page changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [currentPage])
+
+  // Google Analytics: Track SPA route changes only
+  // Initial page load is tracked by the script in index.html
+  useEffect(() => {
+    pageview(`/${currentPage}`)
   }, [currentPage])
 
   // Show/hide scroll to top button based on scroll position
