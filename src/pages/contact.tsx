@@ -51,20 +51,37 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError(false)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await res.json()
+
+      if (res.ok && data.success) {
+        setIsSubmitted(true)
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        setTimeout(() => setIsSubmitted(false), 5000)
+      } else {
+        setSubmitError(true)
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitError(true)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -356,6 +373,12 @@ export default function ContactPage() {
                         className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-orange-500/50 rounded-xl resize-none"
                       />
                     </div>
+
+                    {submitError && (
+                      <div className="text-red-400 text-sm text-center">
+                        Something went wrong. Please try again or contact directly via email.
+                      </div>
+                    )}
 
                     <Button
                       type="submit"

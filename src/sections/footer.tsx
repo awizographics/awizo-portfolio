@@ -1,6 +1,6 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Instagram, Linkedin, Mail, MapPin, Phone, ArrowRight, Send, Heart, Facebook } from 'lucide-react'
+import { Instagram, Linkedin, Mail, MapPin, Phone, ArrowRight, Send, Heart, Facebook, CheckCircle } from 'lucide-react'
 
 interface FooterProps {
   onPageChange: (page: 'home' | 'about' | 'services' | 'portfolio' | 'contact') => void
@@ -32,10 +32,50 @@ const socialLinks = [
 export default function Footer({ onPageChange }: FooterProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true, margin: '-50px' })
+  const [email, setEmail] = useState('')
+  const [isSubscribing, setIsSubscribing] = useState(false)
+  const [isSubscribed, setIsSubscribed] = useState(false)
+  const [subscribeError, setSubscribeError] = useState(false)
 
   const handleLinkClick = (page: 'home' | 'about' | 'services' | 'portfolio' | 'contact') => {
     onPageChange(page)
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email || !email.includes('@')) {
+      setSubscribeError(true)
+      return
+    }
+
+    setIsSubscribing(true)
+    setSubscribeError(false)
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await res.json()
+
+      if (res.ok && data.success) {
+        setIsSubscribed(true)
+        setEmail('')
+        setTimeout(() => setIsSubscribed(false), 5000)
+      } else {
+        setSubscribeError(true)
+      }
+    } catch (error) {
+      console.error('Error subscribing:', error)
+      setSubscribeError(true)
+    } finally {
+      setIsSubscribing(false)
+    }
   }
 
   return (
@@ -107,28 +147,63 @@ export default function Footer({ onPageChange }: FooterProps) {
                     Get the latest design insights, creative tips, and exclusive project updates delivered to your inbox.
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <div className="relative flex-1">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      className="w-full bg-white/5 border border-white/10 rounded-full px-12 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-orange-500/50 focus:bg-white/10 transition-all duration-300"
-                    />
-                  </div>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-8 py-4 rounded-full text-white font-medium flex items-center justify-center gap-2 transition-all duration-300 group"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(251,146,60,0.95) 0%, rgba(217,119,6,0.95) 100%)',
-                      boxShadow: '0 10px 40px -10px rgba(251,146,60,0.4)',
-                    }}
+                {isSubscribed ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex flex-col items-center justify-center py-4"
                   >
-                    Subscribe
-                    <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </motion.button>
-                </div>
+                    <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-2">
+                      <CheckCircle className="w-6 h-6 text-green-400" />
+                    </div>
+                    <p className="text-white font-medium">Subscribed!</p>
+                    <p className="text-white/60 text-sm">Thank you for joining.</p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
+                    <div className="relative flex-1">
+                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
+                        required
+                        className="w-full bg-white/5 border border-white/10 rounded-full px-12 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-orange-500/50 focus:bg-white/10 transition-all duration-300"
+                      />
+                    </div>
+                    <motion.button
+                      type="submit"
+                      disabled={isSubscribing}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="px-8 py-4 rounded-full text-white font-medium flex items-center justify-center gap-2 transition-all duration-300 group disabled:opacity-50"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(251,146,60,0.95) 0%, rgba(217,119,6,0.95) 100%)',
+                        boxShadow: '0 10px 40px -10px rgba(251,146,60,0.4)',
+                      }}
+                    >
+                      {isSubscribing ? (
+                        <span className="flex items-center gap-2">
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                            className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                          />
+                          Subscribing...
+                        </span>
+                      ) : (
+                        <>
+                          Subscribe
+                          <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </>
+                      )}
+                    </motion.button>
+                  </form>
+                )}
+                {subscribeError && !isSubscribed && (
+                  <p className="text-red-400 text-sm">Please enter a valid email address.</p>
+                )}
               </div>
             </div>
           </motion.div>

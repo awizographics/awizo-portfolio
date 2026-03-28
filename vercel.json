@@ -1,0 +1,15 @@
+{
+  "functions": {
+    "api/contact.ts": {
+      "maxDuration": 10
+    },
+    "api/subscribe.ts": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/api/contact", "destination": "/api/contact.ts" },
+    { "source": "/api/subscribe", "destination": "/api/subscribe.ts" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
