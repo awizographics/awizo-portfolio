@@ -145,7 +145,11 @@ const process = [
   },
 ]
 
-export default function ServicesPage() {
+interface ServicesPageProps {
+  onPageChange?: (page: 'contact') => void
+}
+
+export default function ServicesPage({ onPageChange }: ServicesPageProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true, margin: '-100px' })
 
@@ -293,6 +297,7 @@ export default function ServicesPage() {
                       {/* CTA */}
                       <div className="pt-6 border-t border-white/10">
                         <Button
+                          onClick={() => onPageChange?.('contact')}
                           variant="outline"
                           className="border-white/20 text-white hover:bg-white/10 rounded-full group/btn"
                         >
@@ -385,6 +390,7 @@ export default function ServicesPage() {
               and create a tailored package that fits your needs.
             </p>
             <Button
+              onClick={() => onPageChange?.('contact')}
               size="lg"
               className="text-white border-0 rounded-full px-8 transition-all duration-300"
               style={{

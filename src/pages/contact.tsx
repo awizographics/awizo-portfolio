@@ -59,6 +59,7 @@ export default function ContactPage() {
     setSubmitError(false)
     
     try {
+      console.log('Submitting form:', formData)
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -66,14 +67,18 @@ export default function ContactPage() {
         },
         body: JSON.stringify(formData),
       })
+      
+      console.log('Response status:', res.status, res.statusText)
 
       const data = await res.json()
+      console.log('Response data:', data)
 
       if (res.ok && data.success) {
         setIsSubmitted(true)
         setFormData({ name: '', email: '', subject: '', message: '' })
         setTimeout(() => setIsSubmitted(false), 5000)
       } else {
+        console.error('API error:', data)
         setSubmitError(true)
       }
     } catch (error) {

@@ -189,11 +189,13 @@ export default function ServicesGrid({ onPageChange }: ServicesGridProps) {
               style={{ perspective: '1000px' }}
             >
               <motion.div
+                onClick={() => onPageChange('services')}
                 className={`
                   relative h-full rounded-2xl p-6 lg:p-8
                   border border-white/10 overflow-hidden
                   transition-all duration-300
                   hover:border-orange-500/30
+                  cursor-pointer
                   ${service.featured ? 'bg-gradient-to-br from-white/10 to-transparent' : 'bg-white/5 backdrop-blur-sm'}
                 `}
                 whileHover={{ 

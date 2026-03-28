@@ -76,7 +76,7 @@ function App() {
       case 'about':
         return <AboutPage />
       case 'services':
-        return <ServicesPage />
+        return <ServicesPage onPageChange={setCurrentPage} />
       case 'portfolio':
         return <PortfolioPage />
       case 'contact':
@@ -201,15 +201,15 @@ function App() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-50 flex items-end justify-end p-6 pb-24"
+                className="fixed inset-0 z-50"
                 onClick={handleClickOutside}
               >
                 <motion.div
-                  initial={{ opacity: 0, x: 50, scale: 0.95 }}
+                  initial={{ opacity: 0, x: 20, scale: 0.95 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 50, scale: 0.95 }}
+                  exit={{ opacity: 0, x: 20, scale: 0.95 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-80 rounded-2xl overflow-hidden shadow-2xl border border-white/20 mr-2 mb-16"
+                  className="absolute bottom-8 right-20 w-80 rounded-2xl overflow-hidden shadow-2xl border border-white/20"
                   style={{
                     background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
                   }}

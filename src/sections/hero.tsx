@@ -122,7 +122,7 @@ export default function Hero({ onPageChange }: HeroProps) {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4"
             >
               <Button
-                onClick={() => onPageChange('portfolio')}
+                onClick={() => onPageChange('contact')}
                 className="bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white rounded-full px-8 py-6 text-base font-medium group shadow-lg shadow-orange-500/25"
               >
                 Start your project
