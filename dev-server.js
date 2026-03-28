@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { google } from 'googleapis';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -75,7 +76,59 @@ app.post('/api/subscribe', async (req, res) => {
   }
 
   console.log('New subscriber:', email);
-  return res.status(200).json({ success: true });
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const recipientEmail = process.env.CONTACT_EMAIL || process.env.EMAIL_USER;
+
+    await transporter.sendMail({
+      from: `"Portfolio Newsletter" <${process.env.EMAIL_USER}>`,
+      to: recipientEmail,
+      subject: 'New Newsletter Subscriber',
+      html: `
+        <h3>New Newsletter Subscriber</h3>
+        <p>A new user has subscribed to your newsletter:</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Date:</b> ${new Date().toLocaleString()}</p>
+      `,
+    });
+
+    console.log('Subscription notification sent');
+
+    // Save to Google Sheets
+    const auth = new google.auth.JWT(
+      process.env.GOOGLE_CLIENT_EMAIL,
+      undefined,
+      process.env.private_key?.replace(/\\n/g, '\n'),
+      ['https://www.googleapis.com/auth/spreadsheets']
+    );
+
+    const sheets = google.sheets({ version: 'v4', auth });
+
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      range: 'Sheet1!A:B',
+      valueInputOption: 'USER_ENTERED',
+      requestBody: {
+        values: [[email, new Date().toISOString()]],
+      },
+    });
+
+    console.log('Saved to Google Sheets');
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error('Subscription email error:', error);
+    return res.status(500).json({ success: false, error: 'Failed to process subscription' });
+  }
 });
 
 app.listen(PORT, () => {
