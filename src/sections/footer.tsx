@@ -154,7 +154,7 @@ export default function Footer({ onPageChange }: FooterProps) {
                 whileHover={{ scale: 1.02 }}
               >
                 <img 
-                  src="/images/awizo-graphics-logo-horizontal.webp" 
+                  src="/images/awizo-logo.webp" 
                   alt="Awizo Graphics" 
                   className="h-12 w-auto"
                 />

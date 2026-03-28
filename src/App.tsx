@@ -101,12 +101,12 @@ function App() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="flex flex-col items-center gap-4"
+              className="flex flex-col items-center gap-4 pb-8"
             >
               <img 
-                src="/images/awizo-graphics-logo.webp" 
+                src="/images/awizo-logo.webp" 
                 alt="Awizo Graphics" 
-                className="h-20 w-auto"
+                className="h-16 w-auto mb-6"
               />
               <motion.div 
                 className="w-32 h-1 rounded-full overflow-hidden bg-white/10"

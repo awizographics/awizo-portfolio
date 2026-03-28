@@ -89,9 +89,9 @@ export default function Navigation({ currentPage, onPageChange }: NavigationProp
                   whileHover={{ scale: 1.02 }}
                 >
                   <img 
-                    src="/images/awizo-graphics-logo-horizontal.webp" 
+                    src="/images/awizo-logo.webp" 
                     alt="Awizo Graphics" 
-                    className="h-8 w-auto"
+                    className="h-10 w-auto"
                   />
                 </motion.a>
 
@@ -206,7 +206,7 @@ export default function Navigation({ currentPage, onPageChange }: NavigationProp
                 whileTap={{ scale: 0.98 }}
               >
                 <img 
-                  src="/images/awizo-graphics-logo-horizontal.webp" 
+                  src="/images/awizo-logo.webp" 
                   alt="Awizo Graphics" 
                   className="h-6 sm:h-7 md:h-9 w-auto"
                 />

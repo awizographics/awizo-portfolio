@@ -166,7 +166,7 @@ export default function AboutPreview({ onPageChange }: AboutPreviewProps) {
               className="space-y-4 text-white/70 mb-8"
             >
               <p className="text-lg leading-relaxed">
-                With over 8 years of experience in graphic design, I specialize in creating 
+                With over 5 years of experience in graphic design, I specialize in creating 
                 visually stunning brand identities, engaging social media content, and 
                 cutting-edge digital designs.
               </p>
