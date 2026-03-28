@@ -51,12 +51,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log('Subscription notification sent');
 
     // Save to Google Sheets
-    const auth = new google.auth.JWT(
-      process.env.GOOGLE_CLIENT_EMAIL,
-      undefined,
-      process.env.private_key?.replace(/\\n/g, '\n'),
-      ['https://www.googleapis.com/auth/spreadsheets']
-    );
+    const privateKey = (process.env.private_key || '')
+      .replace(/\\n/g, '\n')
+      .replace(/\n/g, '\n');
+    
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: process.env.GOOGLE_CLIENT_EMAIL,
+        private_key: privateKey,
+      },
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
 
     const sheets = google.sheets({ version: 'v4', auth });
 
