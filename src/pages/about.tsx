@@ -16,50 +16,56 @@ const skills = [
   { name: 'Figma', level: 92 },
   { name: 'Adobe After Effects', level: 85 },
   { name: 'Blender 3D', level: 80 },
-  { name: 'Cinema 4D', level: 75 },
+  { name: 'Coral Draw', level: 75 },
 ]
 
 const tools = [
   { icon: Palette, name: 'Adobe Creative Suite', description: 'Photoshop, Illustrator, InDesign' },
   { icon: Code, name: 'Figma & Sketch', description: 'UI/UX Design Tools' },
   { icon: Video, name: 'Motion Graphics', description: 'After Effects, Premiere Pro' },
-  { icon: Box, name: '3D Software', description: 'Blender, Cinema 4D' },
+  { icon: Box, name: '3D Software', description: 'Blender' },
   { icon: Smartphone, name: 'Prototyping', description: 'ProtoPie, Principle' },
-  { icon: Printer, name: 'Print Design', description: 'InDesign, Acrobat' },
+  { icon: Printer, name: 'Print Design', description: 'InDesign, Acrobat, Coral Draw' },
 ]
 
 const timeline = [
   {
-    year: '2024',
-    title: 'Senior Creative Director',
-    company: 'Awizo Graphics',
-    description: 'Leading a team of talented designers, delivering premium design solutions for global clients.',
-  },
-  {
-    year: '2021',
-    title: 'Lead Graphic Designer',
-    company: 'Digital Agency Pro',
-    description: 'Spearheaded branding projects for Fortune 500 companies and innovative startups.',
-  },
-  {
-    year: '2019',
-    title: 'Senior UI/UX Designer',
-    company: 'Tech Innovations Inc',
-    description: 'Designed user interfaces for mobile apps and web platforms with millions of users.',
-  },
-  {
-    year: '2016',
+    year: '2025',
     title: 'Graphic Designer',
-    company: 'Creative Solutions Ltd',
-    description: 'Started professional journey, working on diverse print and digital design projects.',
+    company: 'Sethi – A Complete Family Store',
+    description: 'Collaborating with marketing teams to deliver client-based custom design solutions and promotional visuals.',
+  },
+  {
+    year: '2025',
+    title: 'Graphic Designer',
+    company: 'Theta Solutions',
+    description: 'Creating modern and trendy social media designs focused on layout, typography, and audience engagement.',
+  },
+  {
+    year: '2024 – 2025',
+    title: 'Graphic Designer',
+    company: 'FM Advertising Agency',
+    description: 'Designed branding posts, marketing visuals, and campaign creatives for social media and outdoor advertising.',
+  },
+  {
+    year: '2023',
+    title: 'Graphic Designer',
+    company: 'Technogic System',
+    description: 'Worked on digital graphics and basic brand identity projects while improving client communication skills.',
+  },
+  {
+    year: '2021 – 2023',
+    title: 'Graphic Designer',
+    company: 'Al Farooq Printer',
+    description: 'Started professional journey designing print materials like banners, visiting cards, brochures, and packaging with strong focus on layout and print formatting.',
   },
 ]
 
 const achievements = [
-  '150+ Projects Delivered',
-  '50+ Happy Clients',
-  '8+ Years Experience',
-  '25+ Design Awards',
+  '100+ Design Projects',
+  'Multiple Industry Experience',
+  'Print & Digital Expertise',
+  'Continuous Learning Mindset',
 ]
 
 export default function AboutPage() {
@@ -122,15 +128,16 @@ export default function AboutPage() {
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-6 leading-[1.1]">
-                Crafting Visual{' '}
-                <span className="font-normal italic text-orange-200">Excellence</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl font-light text-white mb-6 leading-[1.1]">
+                Helping Brands Look Better &{' '}
+                <span className="font-normal italic text-orange-200"> Communicate Clearly</span>
               </h1>
               
               <p className="text-lg text-white/70 leading-relaxed mb-8">
-                I&apos;m a passionate creative designer with over 8 years of experience 
-                transforming ideas into stunning visual realities. My journey in design 
-                has been driven by an unwavering commitment to excellence and innovation.
+                I&apos;m a Graphic Designer with hands-on experience in print, digital media, and branding. I started my journey designing banners, brochures, and packaging, and gradually moved into creating impactful visuals for social media and marketing campaigns.
+              </p>
+              <p className="text-lg text-white/70 leading-relaxed mb-8">
+I&apos;ve worked with printing houses, advertising agencies, and business teams ._. helping brands communicate clearly through design. I focus on clean layouts, strong typography, and visuals that not only look good but deliver results.
               </p>
 
               {/* Achievements */}
